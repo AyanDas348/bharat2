@@ -1,11 +1,11 @@
-
+import { founder } from "../assets"
 const Founder = () => {
     return (
         <div className="lg:ml-20 mt-32">
             <div className="flex flex-col text-4xl lg:text-8xl lg:mt-0 mt-20 font-bold ml-5">Meet Our Founder</div>
             <div className="grid lg:grid-cols-4 items-center justify-center grid-cols-1">
                 <div className="w-40 lg:w-80 lg:h-80 h-40 rounded-full overflow-hidden lg:items-start lg:justify-start lg:mx-8 mx-auto flex mt-10">
-                    <img src="/src/assets/WhatsApp Image 2023-04-16 at 23.37.10.jpeg" alt="founder" className="w-full h-full object-cover flex" />
+                    <img src={founder} alt="founder" className="w-full h-full object-cover flex" />
                 </div>
                 <div className="mx-10 mt-10 items-center justify-center col-span-2 text-xl font-medium">
                     <p className="mt-2">I&apos;m Bharat, the founder of Bharat&apos;s Fitness Den.</p>
