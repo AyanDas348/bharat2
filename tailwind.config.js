@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'hero-section': "url('/src/assets/WhatsApp Video 2024-01-02 at 16.15.32.mp4')"
+      },
+    },
   },
   plugins: [],
 }

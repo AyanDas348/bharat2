@@ -25,10 +25,10 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`w-full flex py-5 top-0 mb-[30px] relative z-20 ${scrolled ? "bg-primary" : "bg-transparent"
+      className={`w-full flex top-0 relative z-20 ${scrolled ? "bg-transparent" : "bg-transparent"
         } z-10`}
     >
-      <div className='w-full flex justify-start items-center max-w-7xl'>
+      <div className='w-full flex justify-start items-center'>
         <Link
           to='/'
           className='flex items-center gap-2 justify-self-start w-1/2'
@@ -37,7 +37,7 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
+          <img src={logo} alt='logo' className='w-20 bg-white h-20 object-contain' />
         </Link>
 
         {/* desktop menu */}
@@ -61,12 +61,12 @@ const Navbar = () => {
             </li>
           ))}
           <li
-            className="rounded-3xl bg-white px-14 py-2 text-lg w-48"
+            className="rounded-3xl bg-white px-14 py-2 text-lg w-48 text-black"
           >
             Sign Up
           </li>
           <li
-            className="rounded-3xl bg-white px-14 py-2 text-lg"
+            className="rounded-3xl bg-white px-14 py-2 text-lg text-black"
           >
             Login
           </li>

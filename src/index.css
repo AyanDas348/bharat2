@@ -21,7 +21,7 @@
   color: var(--red-glow-color);
 }
 
-.blue{
+.blue {
   color: var(--glow-color);
 }
 
@@ -36,7 +36,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppin", sans-serif;
   scroll-behavior: smooth;
   background-color: rgb(0, 0, 0);
   color: white;
@@ -69,7 +69,7 @@
 .offer {
   margin: 0;
   text-align: center;
-  font-family: 'Kaushan Script', cursive;
+  font-family: "Kaushan Script", cursive;
   position: relative;
   font-weight: 800;
   text-transform: uppercase;
@@ -80,7 +80,8 @@
   display: inline-block;
   margin: 0 auto;
   padding: 35px 50px;
-  text-shadow: 6px 0 22px #99d2ec ,0 0 28px #99d2ec,0 0px 25px #99d2ec,-10px -10px 65px #99d2ec;
+  text-shadow: 6px 0 22px #99d2ec, 0 0 28px #99d2ec, 0 0px 25px #99d2ec,
+    -10px -10px 65px #99d2ec;
   transform: rotate(-10deg);
 }
 
@@ -89,9 +90,47 @@
     font-size: 80px;
   }
 }
+.main {
+  width: 100%;
+  height: 90vh;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  justify-content: end;
+  align-items: end;
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: white;
+}
+
+.offer-card{
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  /* background-color: #000000cc; */
+}
 
 .triangle {
-  border-right: 10px solid white; 
+  border-right: 10px solid white;
   border-bottom: 10px solid white;
   height: 30px;
   width: 30px;
@@ -101,11 +140,12 @@
   transform: rotate(-45deg);
 }
 
-@keyframes textanim{
-  100%{
-    color: #23138C;
-    -webkit-text-stroke: 2px #6A49EF;
-    text-shadow: 0 0 22px #99d2ec ,0 0 28px #99d2ec,0 0px 25px #510CEF,-10px -10px 65px #510CEF;
+@keyframes textanim {
+  100% {
+    color: #23138c;
+    -webkit-text-stroke: 2px #6a49ef;
+    text-shadow: 0 0 22px #99d2ec, 0 0 28px #99d2ec, 0 0px 25px #510cef,
+      -10px -10px 65px #510cef;
   }
 }
 

@@ -1,4 +1,4 @@
-import logo from './logo.png'
+import logo from './BFD Logo.png'
 import close from './close.png'
 import menu from './menu.png'
 import body from './body.png'
