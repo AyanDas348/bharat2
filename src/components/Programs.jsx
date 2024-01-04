@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { programs } from '../constants';
+// import { Carousel } from 'react-responsive-carousel';
 
 const Programs = () => {
     const [startIndex, setStartIndex] = useState(0);
@@ -18,10 +19,10 @@ const Programs = () => {
     return (
         <div className="lg:ml-20 ml-8 overflow-hidden">
             <div className='flex items-center gap-20'>
-                <div className="flex flex-col text-4xl lg:text-8xl lg:mt-0 mt-32 font-bold">
-                    <h1 className="flex ">Our</h1>
-                    <h1 className="flex">Services</h1>
-                    <div className='triangle'></div>
+                <div className="flex flex-col text-4xl lg:text-8xl lg:mt-10 mt-32 font-bold relative bg-transparent w-full">
+                    <h1 className="flex bg-transparent">Our</h1>
+                    <h1 className="flex bg-transparent">Services</h1>
+                    <div className='triangle absolute top-2/3 opacity-30 right-1/3'></div>
                 </div>
             </div>
             <div className="lg:grid hidden lg:grid-cols-3 grid-cols-1 gap-4 md:gap-8 mt-10 w-full lg:ml-20">
@@ -41,7 +42,7 @@ const Programs = () => {
                     </div>
                 ))}
             </div>
-            <div className="lg:hidden lg:grid-cols-3 grid-cols-1 gap-4 md:gap-8 mt-10 w-full lg:ml-20">
+            <div className="lg:hidden lg:grid-cols-3 gap-4 md:gap-8 mt-10 w-full lg:ml-20">
                 {programs.map((item) => (
                     <div key={item.id} className="p-4 w-80 border-2 h-[400px] flex flex-col justify-between items-center col-span-1 border-transparent mt-4">
                         <img src={item.img} alt={item.title} width={90} height={90} className='flex justify-center items-center' />

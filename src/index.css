@@ -43,12 +43,16 @@
   /* background: url('/src/assets/634d06a9162ae7225245c1a3-ltlyh-7x5ft-black-brick-wall-backdrop.jpg')  */
 }
 
-/* body {
+.user-background {
   background: #112 url(//images.weserv.nl/?url=i.imgur.com/6QJjYMe.jpg) center
     no-repeat;
   background-size: cover;
   margin: 0;
-} */
+  width: 100%;
+  height: 100vh;
+  /* background-color: wheat; */
+  /* background: white; */
+}
 
 #background {
   background: rgb(0, 46, 255);
@@ -115,7 +119,77 @@ video {
   color: white;
 }
 
-.offer-card{
+.background-radial-gradient {
+  background-color: hsl(218, 41%, 15%);
+  background-image: radial-gradient(
+      650px circle at 0% 0%,
+      hsl(218, 41%, 35%) 15%,
+      hsl(218, 41%, 30%) 35%,
+      hsl(218, 41%, 20%) 75%,
+      hsl(218, 41%, 19%) 80%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1250px circle at 100% 100%,
+      hsl(218, 41%, 45%) 15%,
+      hsl(218, 41%, 30%) 35%,
+      hsl(218, 41%, 20%) 75%,
+      hsl(218, 41%, 19%) 80%,
+      transparent 100%
+    );
+}
+
+#radius-shape-1 {
+  height: 220px;
+  width: 220px;
+  top: -60px;
+  left: -130px;
+  background: radial-gradient(#44006b, #ad1fff);
+  overflow: hidden;
+}
+
+#radius-shape-2 {
+  border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+  bottom: -60px;
+  right: -110px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(#44006b, #ad1fff);
+  overflow: hidden;
+}
+
+.bg-glass {
+  background-color: hsla(0, 0%, 100%, 0.9) !important;
+  backdrop-filter: saturate(200%) blur(25px);
+}
+
+@keyframes infiniteScroll {
+  0% {
+    transform: translate(0);
+  }
+
+  100% {
+    transform: translate(-100%);
+  }
+}
+.container {
+  width: 100%;
+  overflow-x: hidden;
+}
+.horizontal-scrolling-items {
+  display: flex;
+  font-size: 40px;
+  width: 100%;
+  animation-name: infiniteScroll;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.horizontal-scrolling-items__item {
+  white-space: nowrap;
+}
+
+.offer-card {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
@@ -130,12 +204,12 @@ video {
 }
 
 .triangle {
-  border-right: 10px solid white;
-  border-bottom: 10px solid white;
-  height: 30px;
-  width: 30px;
+  border-right: 10px solid rgb(255, 0, 0);
+  border-bottom: 10px solid rgb(255, 0, 0);
+  height: 60px;
+  width: 60px;
   background: none;
-  background-color: #000000;
+  background-color: transparent;
   color: black;
   transform: rotate(-45deg);
 }
