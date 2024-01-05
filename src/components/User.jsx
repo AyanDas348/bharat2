@@ -31,13 +31,35 @@ const User = () => {
     console.log(user);
 
     return (
-        <div className="user-background">
-            <div className="w-full bg-transparent flex">
-                <div className="bg-transparent">Schedule</div>
-                <div className="bg-transparent">Subscriptions</div>
+        <div className="user-background flex justify-center">
+            <div className="w-full bg-transparent items-center flex flex-col">
+                <div className="flex w-full bg-transparent mb-6 gap-10 items-center justify-center">
+                    <div className="bg-transparent">
+                        <button
+                            className="w-[200px] mt-4 h-12 text-black font-semibold 
+                            bg-gradient-to-r from-indigo-500 via-purple-500
+                             to-pink-500 rounded-lg shadow-lg hover:scale-105 duration-200 
+                             hover:drop-shadow-2xl hover:shadow-[#7dd3fc] hover:cursor-pointer"
+                            onClick={() => setTab('schedule')}
+                        >
+                            Schedule
+                        </button>
+                    </div>
+                    <div className="bg-transparent">
+                        <button
+                            className="w-[200px] mt-4 h-12 text-black font-semibold 
+                            bg-gradient-to-r from-indigo-500 via-purple-500
+                             to-pink-500 rounded-lg shadow-lg hover:scale-105 duration-200 
+                             hover:drop-shadow-2xl hover:shadow-[#7dd3fc] hover:cursor-pointer"
+                            onClick={() => setTab('subscriptions')}
+                        >
+                            Subscriptions
+                        </button>
+                    </div>
+                </div>
                 {
                     tab === 'schedule' ? (
-                        <div className="bg-white p-4 h-fit rounded-xl">
+                        <div className="bg-white p-4 h-fit w-fit rounded-xl">
                             <div className="overflow-x-auto">
                                 <table className="min-w-full table-auto border-collapse border-gray-300 rounded-xl">
                                     <thead>
@@ -62,7 +84,13 @@ const User = () => {
                             </div>
                         </div>
                     ) : (
-                        <div></div>
+                        <div className="bg-white p-4 h-fit w-fit rounded-xl">
+                            <div className="overflow-x-auto bg-transparent text-black">
+                            {
+                                user.subscription ? 'Your current subscription are' : 'No Active Subscriptions'
+                            }
+                            </div>
+                        </div>
                     )
                 }
             </div>

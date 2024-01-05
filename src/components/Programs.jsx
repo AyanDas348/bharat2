@@ -27,7 +27,7 @@ const Programs = () => {
             </div>
             <div className="lg:grid hidden lg:grid-cols-3 grid-cols-1 gap-4 md:gap-8 mt-10 w-full lg:ml-20">
                 {programs.slice(startIndex, startIndex + 3).map((item) => (
-                    <div key={item.id} className="p-4 w-80 border-2 h-[400px] flex flex-col justify-between items-center col-span-1 border-transparent text-black">
+                    <div key={item.id} className="p-4 w-80 border-2 h-[400px] flex flex-col justify-between my-10 items-center col-span-1 border-transparent rounded-2xl cursor-pointer hover:shadow-lg hover:shadow-blue-300 text-white">
                         <img src={item.img} alt={item.title} width={90} height={90} className='flex justify-center items-center' />
                         <h1 className='text-xl font-bold'>{item.title}</h1>
                         <p className="mt-4 justify-evenly">{item.description}</p>

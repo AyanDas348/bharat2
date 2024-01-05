@@ -45,7 +45,7 @@ const Signin = ({ setPopup }) => {
                 set(ref(db, 'users/' + user.uid), {
                     username: user.displayName,
                     email: user.email,
-                    profile_picture: user.photoURL
+                    profile_picture: user.photoURL,
                 });
                 localStorage.setItem('bharat-user', user.displayName)
                 localStorage.setItem('bharat-loginToken', token)

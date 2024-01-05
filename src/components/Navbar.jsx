@@ -6,10 +6,12 @@ import { auth } from '../firebase/firebase'
 import { signOut } from "firebase/auth";
 import { IoIosArrowDropdown } from "react-icons/io";
 import Signin from "./Signin";
+import { CiMenuBurger } from "react-icons/ci";
+import { IoCloseOutline } from "react-icons/io5";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const authToken = localStorage.getItem('bharat-loginToken')
   const user = localStorage.getItem('bharat-user') || ''
@@ -17,6 +19,7 @@ const Navbar = () => {
   const [popup, setPopup] = useState(false)
   const navigate = useNavigate()
   const uid = localStorage.getItem('bharat-userUID')
+  const [menuIcon, setMenuIcon] = useState(true)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,14 +45,17 @@ const Navbar = () => {
       //add toast message
       localStorage.removeItem('bharat-loginToken')
       setShowDropdown(false)
+      navigate('/')
     }).catch((error) => {
       console.log(error)
     });
   }
 
+  console.log(menuIcon)
+
   return (
     <nav
-      className={`w-full flex top-0 relative py-3 z-20 ${scrolled ? "bg-primary" : "bg-transparent"
+      className={`w-full flex top-0 bg-black relative py-3 z-20 ${scrolled ? "bg-primary" : ""
         } z-10`}
     >
       <div className='w-full flex justify-start items-center max-w-7xl mx-auto'>
@@ -73,7 +79,7 @@ const Navbar = () => {
                 ? 'text-[#BCC6CC] transition duration-300 delay-75'
                 : 'hover:text-[#BCC6CC] transition duration-300 delay-75'
                 } px-14 py-2 rounded-lg text-[18px] font-medium cursor-pointer`}
-              onClick={() => setActive(nav.title)}
+              onClick={() => navigate(`/${nav.id}`)}
             >
               <Link
                 to={`/${nav.id}`}
@@ -99,16 +105,16 @@ const Navbar = () => {
             <li className={`rounded-full bg-green-300 items-center flex justify-center text-lg w-10 h-10 text-black cursor-pointer`}>
               {user[0]}
             </li>
-            <IoIosArrowDropdown className={`cursor-pointer ${authToken ? '' : 'hidden'}`} onClick={() => setShowDropdown(!dropdown)} />
+            <IoIosArrowDropdown className={`cursor-pointer text-white ${authToken ? '' : 'hidden'}`} onClick={() => setShowDropdown(!dropdown)} />
             {
               dropdown && (
-                <div className="absolute right-0 top-14 border-2 rounded-lg z-20 px-4 py-1 cursor-pointer">
-                  <ul className="items-start justify-center flex flex-col">
-                    <li className="mb-2 px-2 py-3" onClick={() => {navigate(`/user/${uid}/schedule`); setShowDropdown(false)}}>
+                <div className="absolute right-0 top-14 border-2 rounded-lg bg-white z-20 px-4 py-1 cursor-pointer">
+                  <ul className="items-start justify-center flex flex-col text-black">
+                    <li className="mb-2 px-2 py-3" onClick={() => { navigate(`/user/${uid}/schedule`); setShowDropdown(false) }}>
                       Schedule
                     </li>
                     <hr className="mb-2 w-full"></hr>
-                    <li className="mb-2 px-2 py-3" onClick={() => {navigate(`/user/${uid}/subscription`); setShowDropdown(false)}}>
+                    <li className="mb-2 px-2 py-3" onClick={() => { navigate(`/user/${uid}/subscription`); setShowDropdown(false) }}>
                       Subscriptions
                     </li>
                     <hr className="mb-2 w-full"></hr>
@@ -123,17 +129,27 @@ const Navbar = () => {
         </ul>
 
         {/* mobile menu */}
-        <div className='lg:hidden flex flex-1 justify-end items-center'>
-          <img
-            src={toggle ? close : menu}
-            alt='menu'
-            className='w-[28px] h-[28px] object-contain'
-            onClick={() => setToggle(!toggle)}
-          />
+        <div className='lg:hidden flex flex-1 justify-end items-center z-20 relative'>
+          <div className={`${menuIcon ? '' : 'hidden'}`}>
+            <button
+              onClick={() => setMenuIcon(false)}
+              className="mx-3"
+            >
+              <CiMenuBurger className="text-white h-8 w-8" />
+            </button>
+          </div>
+          <div className={`${menuIcon ? 'hidden' : ''}`}>
+            <button
+              onClick={() => setMenuIcon(true)}
+              className="mx-3"
+            >
+              <IoCloseOutline className="text-white h-8 w-8" />
+            </button>
+          </div>
 
           <div
             className={`${toggle ? 'menu-slide-in' : 'menu-slide-out'
-              } p-6 border-t-2 border-b-2 text-white absolute w-full z-10`}
+              } p-6 border-t-2 border-b-2 text-black -top-24 bg-white absolute w-full z-10`}
           >
             <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
               {navLinks.map((nav) => (

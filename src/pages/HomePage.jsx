@@ -7,7 +7,7 @@ import Programs from "../components/Programs"
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="bg-black text-white overflow-x-clip">
         <Hero />
         {/* <HorizontalStrip /> */}
         <Programs />
