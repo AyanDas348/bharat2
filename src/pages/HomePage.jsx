@@ -9,7 +9,7 @@ const HomePage = () => {
   return (
     <div className="bg-black text-white overflow-x-clip">
         <Hero />
-        {/* <HorizontalStrip /> */}
+        <HorizontalStrip />
         <Programs />
         <Founder />
         <Offer />

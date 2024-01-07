@@ -55,7 +55,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`w-full flex top-0 bg-black relative py-3 z-20 ${scrolled ? "bg-primary" : ""
+      className={`w-full flex top-0 fixed py-3 z-20 ${scrolled ? "bg-black text-black" : "bg-black"
         } z-10`}
     >
       <div className='w-full flex justify-start items-center max-w-7xl mx-auto'>
@@ -67,7 +67,7 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt='logo' className='w-16 h-16 bg-white object-contain' />
+          <img src={logo} alt='logo' className='w-20 h-20 object-contain' />
         </Link>
 
         {/* desktop menu */}

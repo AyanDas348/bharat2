@@ -31,7 +31,7 @@ const User = () => {
     console.log(user);
 
     return (
-        <div className="user-background flex justify-center">
+        <div className="user-background flex justify-center mt-24 overflow-x-clip">
             <div className="w-full bg-transparent items-center flex flex-col">
                 <div className="flex w-full bg-transparent mb-6 gap-10 items-center justify-center">
                     <div className="bg-transparent">

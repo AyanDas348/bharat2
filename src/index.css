@@ -1,12 +1,42 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @font-face {
-  font-family: 'myfont';
-  src: url("./assets/font.otf") format('opentype');
+  font-family: "myfont";
+  src: url("./assets/font.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "headingFont";
+  src: url("./assets/Azonix.otf") format("opentype");
+}
+
+.headingFont {
+  font-family: "headingFont";
+}
+
+h1 {
+  font-family: "headingFont";
+}
+
+.h2 {
+  font-family: "subHeadingFont";
+}
+
+.subHeadingFont {
+  font-family: "Source Sans 3", sans-serif;
+}
+
+p {
+  font-family: "Source Sans 3", sans-serif;
+}
+
+.myfont {
+  font-family: "myfont";
 }
 
 :root {
@@ -51,8 +81,8 @@
 
 .user-background {
   background: #112 url(//images.weserv.nl/?url=i.imgur.com/6QJjYMe.jpg) center
-    no-repeat;
-  background-size: cover; 
+    repeat;
+  background-size: cover;
   width: 100%;
   height: 100vh;
   /* background-color: wheat; */
@@ -101,13 +131,13 @@
 }
 .main {
   width: 100%;
-  height: 90vh;
+  height: 100vh;
 }
 
 video {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   justify-content: end;
   align-items: end;
 }
@@ -177,21 +207,43 @@ video {
     transform: translate(-100%);
   }
 }
-.container {
-  width: 100%;
-  overflow-x: hidden;
-}
-.horizontal-scrolling-items {
+.container1 {
   display: flex;
-  font-size: 40px;
-  width: 100%;
-  animation-name: infiniteScroll;
-  animation-duration: 10s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+  align-items: center;
+  height: 10vh;
+  /* overflow: hidden; */
+  width: fit-content;
+  box-sizing: border-box;
+  /* padding: 0; */
+  /* background-color: var(--glow-color); */
+  /* font-family: 'myfont'; */
 }
-.horizontal-scrolling-items__item {
+
+.scroll {
   white-space: nowrap;
+}
+.scroll div {
+  display: flex;
+  gap: 2em;
+}
+.scroll p {
+  font-size: 5em;
+  color: var(--red-glow-color);
+  font-weight: bold;
+  margin-bottom: 0;
+  font-family: "myfont";
+  line-height: 10px;
+}
+.rightToLeft {
+  animation: RightToLeft 30s infinite linear;
+}
+@keyframes RightToLeft {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .offer-card {
