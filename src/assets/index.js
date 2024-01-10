@@ -8,6 +8,7 @@ import zumba from './icons8-dance-64.png'
 import workout from './icons8-workout-64.png'
 import yoga from './icons8-yoga-100.png'
 import founder from './WhatsApp Image 2023-04-16 at 23.37.10.jpeg'
+import offerBackground from './10-Essential-Weight-Lifting-Tips.jpg'
 
 export {
     logo,
@@ -20,4 +21,5 @@ export {
     workout,
     yoga,
     founder,
+    offerBackground
 }

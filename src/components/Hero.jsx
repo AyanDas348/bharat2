@@ -12,14 +12,16 @@ const Hero = () => {
                 <div className="lg:w-1/3 w-3/4 mt-5 text-white text-xl font-medium mb-20 bg-transparent">
                     <h2 className='subHeadingFont'>Motivate users with benefits and positive reinforcement, and offer modifications and progress tracking.</h2>
                 </div>
-                <button className='glowing-btn bg-transparent lg:w-1/4 w-3/4'>
-                    <span className='glowing-txt bg-transparent myfont'>
-                        Sta
-                        <span className='faulty-letter bg-transparent myfont'>
-                            rt &nbsp;
-                        </span>Training
-                    </span>
-                </button>
+                <a className='lg:w-1/4 w-3/4' href='#services'>
+                    <button className='glowing-btn bg-transparent'>
+                        <span className='glowing-txt bg-transparent myfont'>
+                            Sta
+                            <span className='faulty-letter bg-transparent myfont'>
+                                rt &nbsp;
+                            </span>Training
+                        </span>
+                    </button>
+                </a>
             </div>
         </div>
     )

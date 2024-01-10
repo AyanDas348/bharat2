@@ -12,6 +12,8 @@ const HomePage = () => {
         <HorizontalStrip />
         <Programs />
         <Founder />
+        <div className="offer-background">
+        </div>
         <Offer />
     </div>
   )

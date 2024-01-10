@@ -67,6 +67,15 @@ p {
   );
 }
 
+.offer-background {
+  background: url('/src/assets/10-Essential-Weight-Lifting-Tips.jpg');
+  height: 60vh;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 8em;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -92,6 +101,19 @@ p {
 #background {
   background: rgb(0, 46, 255);
   background: linear-gradient(90deg, #40c9ff 0%, rgb(255, 0, 0) 100%);
+}
+
+.custom-circle {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+    background: transparent;
+    border-top: 3px solid transparent;
+    border-left: 3px solid var(--glow-color);
+    border-right: 3px solid var(--glow-color);
+    border-bottom: 3px solid var(--glow-color);
+    transform: rotate(45deg);
 }
 
 .menu-slide-in {

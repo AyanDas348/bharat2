@@ -130,17 +130,17 @@ const Navbar = () => {
 
         {/* mobile menu */}
         <div className='lg:hidden flex flex-1 justify-end items-center z-20 relative'>
-          <div className={`${menuIcon ? '' : 'hidden'}`}>
+          <div className={`${menuIcon ? '' : 'hidden'} z-20`}>
             <button
-              onClick={() => setMenuIcon(false)}
+              onClick={() => {setMenuIcon(false); console.log(1)}}
               className="mx-3"
             >
               <CiMenuBurger className="text-white h-8 w-8" />
             </button>
           </div>
-          <div className={`${menuIcon ? 'hidden' : ''}`}>
+          <div className={`${menuIcon ? 'hidden' : ''} z-20`}>
             <button
-              onClick={() => setMenuIcon(true)}
+              onClick={() => {setMenuIcon(true); console.log(2)}}
               className="mx-3"
             >
               <IoCloseOutline className="text-white h-8 w-8" />
@@ -149,7 +149,7 @@ const Navbar = () => {
 
           <div
             className={`${toggle ? 'menu-slide-in' : 'menu-slide-out'
-              } p-6 border-t-2 border-b-2 text-black -top-24 bg-white absolute w-full z-10`}
+              } p-6 border-t-2 border-b-2 -top-24 text-black bg-white absolute w-full`}
           >
             <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
               {navLinks.map((nav) => (
