@@ -2,7 +2,7 @@ import { founder } from "../assets"
 const Founder = () => {
     return (
         <div className="lg:ml-20 mx-auto mt-32">
-            <div className="flex flex-col text-4xl lg:text-8xl lg:mt-0 mt-20 font-bold ml-10">
+            <div className="flex flex-col text-4xl lg:text-8xl lg:mt-0 mt-20 font-bold mb-10 text-center">
                 <h1>Meet Our Founder</h1>
             </div>
             <div className="grid lg:grid-cols-4 items-center justify-center grid-cols-1 mx-10">

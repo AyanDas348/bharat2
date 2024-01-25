@@ -40,7 +40,7 @@ p {
 }
 
 :root {
-  --glow-color: hsl(186 100% 69%);
+  --glow-color: hsl(20, 93%, 57%);
   --red-glow-color: hsl(360 100% 54%);
 }
 
@@ -84,6 +84,7 @@ p {
   font-family: Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
   /* background-color: rgb(0, 0, 0); */
+  background-color: rgb(0, 0, 0);
   /* color: white; */
   /* background: url('/src/assets/634d06a9162ae7225245c1a3-ltlyh-7x5ft-black-brick-wall-backdrop.jpg')  */
 }
@@ -144,6 +145,73 @@ p {
   text-shadow: 6px 0 22px #99d2ec, 0 0 28px #99d2ec, 0 0px 25px #99d2ec,
     -10px -10px 65px #99d2ec;
   transform: rotate(-10deg);
+}
+
+.c-button {
+  color: #000;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 0.9em 1.6em;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  z-index: 1;
+}
+
+.c-button--gooey {
+  color: #FF6701;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  /* border: 4px solid #FF6701;
+  border-radius: 0; */
+  position: relative;
+  transition: all 700ms ease;
+}
+
+.c-button--gooey .c-button__blobs {
+  height: 100%;
+  filter: url(#goo);
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: -3px;
+  right: -1px;
+  z-index: -1;
+}
+
+.c-button--gooey .c-button__blobs div {
+  background-color: #FF6701;
+  width: 40%;
+  height: 100%;
+  border-radius: 100%;
+  position: absolute;
+  transform: scale(2) translateY(125%) translateZ(0);
+  transition: all 700ms ease;
+}
+
+.c-button--gooey .c-button__blobs div:nth-child(1) {
+  left: 0;
+}
+
+.c-button--gooey .c-button__blobs div:nth-child(2) {
+  left: 30%;
+  transition-delay: 60ms;
+}
+
+.c-button--gooey .c-button__blobs div:nth-child(3) {
+  left: 66%;
+  transition-delay: 25ms;
+}
+
+.c-button--gooey:hover {
+  color: #fff;
+}
+
+.c-button--gooey:hover .c-button__blobs div {
+  transform: scale(1.4) translateY(0) translateZ(0);
 }
 
 @media screen and (max-width: 400px) {
@@ -232,10 +300,13 @@ video {
 .container1 {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 10vh;
   /* overflow: hidden; */
   width: fit-content;
   box-sizing: border-box;
+  /* padding-top: 20em;
+  padding-bottom: 20em; */
   /* padding: 0; */
   /* background-color: var(--glow-color); */
   /* font-family: 'myfont'; */
@@ -314,7 +385,7 @@ i::before {
 
 .glowing-btn {
   position: relative;
-  color: var(--glow-color);
+  color: white;
   cursor: pointer;
   padding: 0.35em 1em;
   border: 0.15em solid var(--glow-color);
@@ -360,7 +431,7 @@ i::before {
   right: 0;
   opacity: 0.7;
   filter: blur(1em);
-  transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
+  transform: translateY(80%) rotateX(95deg) scale(1, 0.35);
   background: var(--glow-color);
   pointer-events: none;
 }
@@ -674,3 +745,76 @@ i::before {
 .slide-wipe-left {
   animation: 2.5s cubic-bezier(0.25, 1, 0.3, 1) wipe-in-left both;
 }
+
+.button-hover {
+  overflow: visible;
+  width: 190px;
+  height: 40px;
+}
+
+.content1 {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 300ms;
+  box-shadow: 0px 0px 10px 1px #000000ee;
+  border-radius: 5px;
+}
+
+.back1 {
+  background-color: #151515;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 5px;
+  overflow: visible;
+}
+
+.back1 {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.back1::before {
+  position: absolute;
+  content: ' ';
+  display: block;
+  width: 160px;
+  height: 160%;
+}
+
+.back1:hover::before {
+  animation: rotation_481 5s infinite linear;
+  background: linear-gradient(90deg, transparent, #ff9966, #ff9966, #ff9966, #ff9966, transparent);
+}
+
+.back-content1 {
+  position: absolute;
+  width: 99%;
+  height: 99%;
+  background-color: #151515;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+@keyframes rotation_481 {
+  0% {
+    transform: rotateZ(0deg);
+  }
+
+  0% {
+    transform: rotateZ(360deg);
+  }
+}
+
