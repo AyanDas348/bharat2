@@ -7,7 +7,7 @@ const DrawOutlineButton = ({ children, ...rest }) => {
   return (
     <button
       {...rest}
-      className="group relative px-4 py-2 font-medium text-[#FF6701] transition-colors duration-[400ms] hover:text-[#ffffff]"
+      className="group relative px-4 py-2 font-medium text-[#FF6701] transition-colors duration-[400ms] !hover:text-[#ffffff]"
     >
       <span>{children}</span>
 
@@ -42,9 +42,9 @@ export default function App() {
       <NavbarContent className="">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="bg-white text-white"
+          className="sm:hidden text-white"
         />
-        <NavbarBrand className="text-[#FF6701] justify-end flex" >
+        <NavbarBrand className="text-[#FF6701] lg:justify-start justify-end ml-10 flex" >
           <Link href="/" className="">
             <img src={logo} alt="logo" width={95} height={95} className="bg-transparent scale-150" />
             <p className="font-bold lg:text-2xl hidden text-[#FF6701] ">Bharat's Fitness Den</p>
@@ -52,25 +52,31 @@ export default function App() {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-10" justify="center">
+      <NavbarContent className="hidden sm:flex gap-10 ml-10" justify="center">
         <NavbarItem isActive>
-          <Link href="#" aria-current="page" className="text-[#FF6701]">
-            Home
-          </Link>
+          <div className="grid place-content-center p-4">
+            <DrawOutlineButton>
+              <Link href="#" aria-current="page" className="text-[#FF6701] hover:text-[#ffffff]">
+                Home
+              </Link>
+            </DrawOutlineButton>
+          </div>
         </NavbarItem>
         <NavbarItem isActive>
-          <Link href="/testimonial" aria-current="page" className="text-[#FF6701]">
-            Testimonial
-          </Link>
+          <div className="grid place-content-center p-4">
+            <DrawOutlineButton><Link href="#" className="text-[#FF6701] hover:text-[#ffffff]">Testimonial</Link></DrawOutlineButton>
+          </div>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex text-[#FF6701]">
-          <Link href="#" className="text-[#FF6701]">Login</Link>
+          <div className="grid place-content-center p-4">
+            <DrawOutlineButton><Link href="#" className="text-[#FF6701] hover:text-[#ffffff]">Login</Link></DrawOutlineButton>
+          </div>
         </NavbarItem>
         <NavbarItem>
           <div className="grid place-content-center p-4">
-            <DrawOutlineButton><Link href="#" className="text-[#FF6701]">Sign Up</Link></DrawOutlineButton>
+            <DrawOutlineButton><Link href="#" className="text-[#FF6701] hover:text-[#ffffff]">Sign Up</Link></DrawOutlineButton>
           </div>
         </NavbarItem>
         <NavbarMenu className="bg-transparent">
