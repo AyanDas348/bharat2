@@ -1,196 +1,92 @@
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { navLinks } from "../constants";
-import { close, logo, menu } from '../assets'
-import { auth } from '../firebase/firebase'
-import { signOut } from "firebase/auth";
-import { IoIosArrowDropdown } from "react-icons/io";
-import Signin from "./Signin";
-import { CiMenuBurger } from "react-icons/ci";
-import { IoCloseOutline } from "react-icons/io5";
+import React from "react";
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
+import { logo } from "../assets";
+import { NavbarMenuToggle, NavbarMenu, NavbarMenuItem } from "@nextui-org/react";
 
-const Navbar = () => {
-  const [active, setActive] = useState("");
-  const [toggle, setToggle] = useState(true);
-  const [scrolled, setScrolled] = useState(false);
-  const authToken = localStorage.getItem('bharat-loginToken')
-  const user = localStorage.getItem('bharat-user') || ''
-  const [dropdown, setShowDropdown] = useState(false)
-  const [popup, setPopup] = useState(false)
-  const navigate = useNavigate()
-  const uid = localStorage.getItem('bharat-userUID')
-  const [menuIcon, setMenuIcon] = useState(true)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      if (scrollTop > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const signin = async () => {
-    setPopup(true)
-  }
-
-  const signOutUser = async () => {
-    signOut(auth).then(() => {
-      //add toast message
-      localStorage.removeItem('bharat-loginToken')
-      setShowDropdown(false)
-      navigate('/')
-    }).catch((error) => {
-      console.log(error)
-    });
-  }
-
-  console.log(menuIcon)
-
+const DrawOutlineButton = ({ children, ...rest }) => {
   return (
-    <nav
-      className={`w-full flex top-0 fixed py-3 z-20 ${scrolled ? "bg-black text-black" : "bg-black"
-        } z-10`}
+    <button
+      {...rest}
+      className="group relative px-4 py-2 font-medium text-[#FF6701] transition-colors duration-[400ms] hover:text-[#ffffff]"
     >
-      <div className='w-full flex justify-start items-center max-w-7xl mx-auto'>
-        <Link
-          to='/'
-          className='flex items-center gap-2 justify-center w-1/2'
-          onClick={() => {
-            setActive("");
-            window.scrollTo(0, 0);
-          }}
-        >
-          <img src={logo} alt='logo' className='w-20 h-20 object-contain' />
-        </Link>
+      <span>{children}</span>
 
-        {/* desktop menu */}
-        <ul className='list-none hidden lg:flex flex-row gap-10 justify-end w-full'>
-          {navLinks.map((nav) => (
-            <li
-              key={nav.id}
-              className={`${active === nav.title
-                ? 'text-[#BCC6CC] transition duration-300 delay-75'
-                : 'hover:text-[#BCC6CC] transition duration-300 delay-75'
-                } px-14 py-2 rounded-lg text-[18px] font-medium cursor-pointer`}
-              onClick={() => navigate(`/${nav.id}`)}
-            >
-              <Link
-                to={`/${nav.id}`}
-                onClick={() => setActive(nav.title)}
-                className={`${active === nav.title ? 'text-[#BCC6CC]' : 'text-[#BCC6CC]'}`}
-              >
-                {nav.title}
-              </Link>
-            </li>
-          ))}
-          <li
-            className={`rounded-3xl bg-white px-14 py-2 text-lg w-fit text-black cursor-pointer ${authToken ? 'hidden' : ''}`}
-            onClick={() => signin()}
-          >
-            Sign Up
-          </li>
-          <li
-            className={`rounded-3xl bg-white px-14 py-2 text-lg w-fit text-black cursor-pointer ${authToken ? 'hidden' : ''}`}
-          >
-            Login
-          </li>
-          <div className={`flex items-center justify-center gap-3 relative ${authToken ? '' : 'hidden'}`}>
-            <li className={`rounded-full bg-green-300 items-center flex justify-center text-lg w-10 h-10 text-black cursor-pointer`}>
-              {user[0]}
-            </li>
-            <IoIosArrowDropdown className={`cursor-pointer text-white ${authToken ? '' : 'hidden'}`} onClick={() => setShowDropdown(!dropdown)} />
-            {
-              dropdown && (
-                <div className="absolute right-0 top-14 border-2 rounded-lg bg-white z-20 px-4 py-1 cursor-pointer">
-                  <ul className="items-start justify-center flex flex-col text-black">
-                    <li className="mb-2 px-2 py-3" onClick={() => { navigate(`/user/${uid}/schedule`); setShowDropdown(false) }}>
-                      Schedule
-                    </li>
-                    <hr className="mb-2 w-full"></hr>
-                    <li className="mb-2 px-2 py-3" onClick={() => { navigate(`/user/${uid}/subscription`); setShowDropdown(false) }}>
-                      Subscriptions
-                    </li>
-                    <hr className="mb-2 w-full"></hr>
-                    <li className="mb-2 px-2 py-3" onClick={() => signOutUser()}>
-                      Sign Out
-                    </li>
-                  </ul>
-                </div>
-              )
-            }
-          </div>
-        </ul>
+      {/* TOP */}
+      <span className="absolute left-0 top-0 h-[2px] w-0 bg-[#FF6701] transition-all duration-100 group-hover:w-full" />
 
-        {/* mobile menu */}
-        <div className='lg:hidden flex flex-1 justify-end items-center z-20 relative'>
-          <div className={`${menuIcon ? '' : 'hidden'} z-20`}>
-            <button
-              onClick={() => {setMenuIcon(false); console.log(1)}}
-              className="mx-3"
-            >
-              <CiMenuBurger className="text-white h-8 w-8" />
-            </button>
-          </div>
-          <div className={`${menuIcon ? 'hidden' : ''} z-20`}>
-            <button
-              onClick={() => {setMenuIcon(true); console.log(2)}}
-              className="mx-3"
-            >
-              <IoCloseOutline className="text-white h-8 w-8" />
-            </button>
-          </div>
+      {/* RIGHT */}
+      <span className="absolute right-0 top-0 h-0 w-[2px] bg-[#FF6701] transition-all delay-100 duration-100 group-hover:h-full" />
 
-          <div
-            className={`${toggle ? 'menu-slide-in' : 'menu-slide-out'
-              } p-6 border-t-2 border-b-2 -top-24 text-black bg-white absolute w-full`}
-          >
-            <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
-              {navLinks.map((nav) => (
-                <li
-                  key={nav.id}
-                  className={`font-poppins font-medium cursor-pointer text-[16px] ${active === nav.title ? 'text-white' : 'text-secondary'
-                    }`}
-                  onClick={() => {
-                    setToggle(!toggle);
-                    setActive(nav.title);
-                  }}
-                >
-                  <Link to={`/${nav.id}`} onClick={() => setActive(nav.title)}>
-                    {nav.title}
-                  </Link>
-                </li>
-              ))}
-              <li
-                key={'signup'}
-                className={`font-poppins font-medium cursor-pointer text-[16px]`}
-              >
-                Sign Up
-              </li>
-              <li
-                className={`font-poppins font-medium cursor-pointer text-[16px]`}
-              >
-                Login
-              </li>
-            </ul>
-          </div>
-        </div>
+      {/* BOTTOM */}
+      <span className="absolute bottom-0 right-0 h-[2px] w-0 bg-[#FF6701] transition-all delay-200 duration-100 group-hover:w-full" />
 
-      </div>
-
-      {
-        popup && (
-          <Signin setPopup={setPopup} />
-        )
-      }
-    </nav>
+      {/* LEFT */}
+      <span className="absolute bottom-0 left-0 h-0 w-[2px] bg-[#FF6701] transition-all delay-300 duration-100 group-hover:h-full" />
+    </button>
   );
 };
 
-export default Navbar;
+
+export default function App() {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const menuItems = [
+    "Home",
+    "Testimonial",
+    "Sign In",
+    "Log out",
+  ];
+
+  return (
+    <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-black h-24 !gap-10">
+      <NavbarContent className="">
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="bg-white text-white"
+        />
+        <NavbarBrand className="text-[#FF6701] justify-end flex" >
+          <Link href="/" className="">
+            <img src={logo} alt="logo" width={95} height={95} className="bg-transparent scale-150" />
+            <p className="font-bold lg:text-2xl hidden text-[#FF6701] ">Bharat's Fitness Den</p>
+          </Link>
+        </NavbarBrand>
+      </NavbarContent>
+
+      <NavbarContent className="hidden sm:flex gap-10" justify="center">
+        <NavbarItem isActive>
+          <Link href="#" aria-current="page" className="text-[#FF6701]">
+            Home
+          </Link>
+        </NavbarItem>
+        <NavbarItem isActive>
+          <Link href="/testimonial" aria-current="page" className="text-[#FF6701]">
+            Testimonial
+          </Link>
+        </NavbarItem>
+      </NavbarContent>
+      <NavbarContent justify="end">
+        <NavbarItem className="hidden lg:flex text-[#FF6701]">
+          <Link href="#" className="text-[#FF6701]">Login</Link>
+        </NavbarItem>
+        <NavbarItem>
+          <div className="grid place-content-center p-4">
+            <DrawOutlineButton><Link href="#" className="text-[#FF6701]">Sign Up</Link></DrawOutlineButton>
+          </div>
+        </NavbarItem>
+        <NavbarMenu className="bg-transparent">
+          {menuItems.map((item, index) => (
+            <NavbarMenuItem key={`${item}-${index}`} className="bg-transparent">
+              <Link
+                className="w-full text-[#FF6701] bg-transparent"
+                href="#"
+                size="lg"
+              >
+                {item}
+              </Link>
+            </NavbarMenuItem>
+          ))}
+        </NavbarMenu>
+      </NavbarContent>
+    </Navbar>
+  );
+}

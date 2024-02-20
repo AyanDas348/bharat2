@@ -19,6 +19,10 @@
   font-family: "headingFont";
 }
 
+.hero-head{
+  width: min(70%, 700px);
+}
+
 h1 {
   font-family: "headingFont";
 }

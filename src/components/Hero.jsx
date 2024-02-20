@@ -6,7 +6,7 @@ const Hero = () => {
             <div className='overlay'></div>
             <video autoPlay loop muted src={video} disablePictureInPicture controlsList='nodownload' className='bg-transparent' />
             <div className="lg:h-[100vh] md:h-[100vh] lg:pl-20 pl-8 mt-20 items-center w-full bg-transparent content">
-                <div className="lg:w-1/3 md:w-full w-3/4 text-white lg:text-7xl text-4xl lg:mt-40 mt-20 font-bold bg-transparent">
+                <div className={`hero-head text-white lg:text-7xl text-4xl lg:mt-40 mt-20 font-bold bg-transparent`}>
                     <h1 className='headingFont bg-transparent'>Helps for your ideal body fitness</h1>
                 </div>
                 <div className="lg:w-1/3 w-3/4 mt-5 text-white text-xl font-medium mb-20 bg-transparent">

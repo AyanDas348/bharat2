@@ -5,6 +5,29 @@ import { GrPrevious } from "react-icons/gr";
 import ContactModal from './ContactModal'
 // import { Carousel } from 'react-responsive-carousel';
 
+const DrawOutlineButton = ({ children, ...rest }) => {
+    return (
+        <button
+            {...rest}
+            className="group relative px-4 py-2 font-medium text-[#FF6701] transition-colors duration-[400ms] hover:text-[#ffffff]"
+        >
+            <span>{children}</span>
+
+            {/* TOP */}
+            <span className="absolute left-0 top-0 h-[2px] w-0 bg-[#FF6701] transition-all duration-100 group-hover:w-full" />
+
+            {/* RIGHT */}
+            <span className="absolute right-0 top-0 h-0 w-[2px] bg-[#FF6701] transition-all delay-100 duration-100 group-hover:h-full" />
+
+            {/* BOTTOM */}
+            <span className="absolute bottom-0 right-0 h-[2px] w-0 bg-[#FF6701] transition-all delay-200 duration-100 group-hover:w-full" />
+
+            {/* LEFT */}
+            <span className="absolute bottom-0 left-0 h-0 w-[2px] bg-[#FF6701] transition-all delay-300 duration-100 group-hover:h-full" />
+        </button>
+    );
+};
+
 const Programs = () => {
     const [startIndex, setStartIndex] = useState(0);
     const [isOpen, setIsOpen] = useState(false)
@@ -50,22 +73,9 @@ const Programs = () => {
                         <img src={item.img} alt={item.title} width={90} height={90} className='flex justify-center items-center' />
                         <h1 className='text-xl font-bold'>{item.title}</h1>
                         <p className="mt-4 justify-evenly">{item.description}</p>
-                        <button className="c-button c-button--gooey" onClick={() => handleOpen()}> Get Started
-                            <div className="c-button__blobs">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                        </button>
-                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style={{ display: 'block', height: '0', width: '0' }}>
-                            <defs>
-                                <filter id="goo">
-                                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
-                                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo"></feColorMatrix>
-                                    <feBlend in="SourceGraphic" in2="goo"></feBlend>
-                                </filter>
-                            </defs>
-                        </svg>
+                        <div className="grid place-content-center p-4">
+                            <DrawOutlineButton>Get Started</DrawOutlineButton>
+                        </div>
                     </div>
                 ))}
                 <div className='col-span-1 items-center flex cursor-pointer' onClick={handleRightClick}>
@@ -88,7 +98,7 @@ const Programs = () => {
                     </div>
                 ))}
             </div>
-        </div>
+        </div >
     );
 };
 
