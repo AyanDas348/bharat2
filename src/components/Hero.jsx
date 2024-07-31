@@ -38,7 +38,7 @@ const Hero = () => {
                 <p className="font-bold lg:text-2xl hidden text-[#FF6701] ">Bharat's Fitness Den</p>
             </Link>
             <div className="lg:h-[100vh] md:h-[100vh] lg:pl-20 pl-8 items-center w-full bg-transparent content lg:pt-56 pt-56">
-                <div className="hero-head text-white lg:text-7xl text-4xl font-bold bg-transparent !w-full flex">
+                <div className="hero-head text-white lg:text-7xl text-4xl font-bold bg-transparent lg:!w-1/3 !w-full flex">
                     <h1 className="headingFont bg-transparent w-full">Helps for your ideal body fitness</h1>
                 </div>
                 <div className="lg:w-1/3 w-3/4 mt-5 text-white text-xl font-medium mb-20 bg-transparent hidden xl:flex">
