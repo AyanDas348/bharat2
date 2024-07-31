@@ -65,7 +65,7 @@ const Programs = () => {
                 </div>
             </div>
             {/* desktop */}
-            <div className=''>
+            <div className='flex items-center gap-20'>
                 <div className="xl:grid hidden xl:grid-cols-11 grid-cols-1 gap-4 md:gap-8 xl:gap-20 mt-10 w-full">
                     <div className='col-span-1 items-center flex cursor-pointer' onClick={handleLeftClick}>
                         <GrPrevious className='text-white h-20 w-20' />
@@ -88,15 +88,15 @@ const Programs = () => {
             </div>
 
             {/* small screen */}
-            <div className="xl:hidden lg:grid-cols-3 lg:grid gap-4 mt-10 w-full xl:ml-20 lg:px-10 lg:gap-4">
+            <div className="xl:hidden lg:grid-cols-3 grid gap-x-6 lg:px-10 gap-y-9 cursor-pointer mb-10 grid-cols-1 px-6 justify-items-center mt-10">
                 {programs.map((item) => (
-                    <div key={item.id} className="p-4 w-80 lg:w-72 border-2 h-[400px] flex flex-col justify-between items-center col-span-1 border-transparent mt-4 lg:border-[#FF6701] lg:rounded-lg">
+                    <div key={item.id} className="p-4 w-80 lg:w-full border-2 h-[400px] flex flex-col justify-between items-center col-span-1 mt-4 border-[#FF6701] rounded-lg hover:scale-105 duration-200 hover:drop-shadow-2xl hover:shadow-[#FF6701] shadow-xl">
                         <img src={item.img} alt={item.title} width={90} height={90} className='flex justify-center items-center' />
                         <h1 className='text-xl font-bold'>{item.title}</h1>
                         <p className="mt-4 justify-evenly">{item.description}</p>
                         <button
-                            className="w-full mt-4 h-12 text-black font-semibold 
-                            bg-gradient-to-r from-[#FF3C00] to-[#FF6701] rounded-xl shadow-xl hover:cursor-pointer"
+                            className="w-full mt-4 h-12 text-white font-semibold 
+                            bg-gradient-to-r from-[#ec5f00] to-[#ec5f00] rounded-xl shadow-xl hover:cursor-pointer"
                             onClick={() => handleOpen()}
                         >
                             Get Started

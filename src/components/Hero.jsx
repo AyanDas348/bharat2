@@ -37,8 +37,8 @@ const Hero = () => {
                 <img src={logo} alt="logo" width={95} height={95} className="bg-transparent scale-150" />
                 <p className="font-bold lg:text-2xl hidden text-[#FF6701] ">Bharat's Fitness Den</p>
             </Link>
-            <div className="lg:h-[100vh] md:h-[100vh] lg:pl-20 pl-8 items-center w-full bg-transparent content lg:pt-56 pt-56">
-                <div className="hero-head text-white lg:text-7xl text-4xl font-bold bg-transparent lg:!w-1/3 !w-full flex">
+            <div className="lg:h-[100vh] md:h-[100vh] lg:pl-20 pl-8 items-center w-full bg-transparent content lg:pt-56 pt-72">
+                <div className="hero-head text-white lg:text-7xl text-4xl font-bold bg-transparent xl:!w-1/3 lg:!w-2/3 !w-[90%] flex">
                     <h1 className="headingFont bg-transparent w-full">Helps for your ideal body fitness</h1>
                 </div>
                 <div className="lg:w-1/3 w-3/4 mt-5 text-white text-xl font-medium mb-20 bg-transparent hidden xl:flex">

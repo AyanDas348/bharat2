@@ -16,7 +16,7 @@ const WhatWeOffer = () => {
                     <h1 className="text-2xl xl:text-6xl font-bold pt-10 xl:px-20">The main thing for us is your result !</h1>
                 </div>
             </div>
-            <div id="cards" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-20 px-4 xl:px-32 lg:min-h-60">
+            <div id="cards" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-20 px-4 xl:px-32 lg:min-h-60 lg:gap-6">
                 {offers.map((offer, index) => (
                     <div
                         key={index}
