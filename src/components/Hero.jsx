@@ -1,16 +1,15 @@
 import { useState, useEffect } from 'react';
 import { logo } from "../assets";
+import img1 from '../assets/heroImages/GYM INTERIOR_1.11.1.jpg';
+import img2 from '../assets/heroImages/GYM INTERIOR_1.15.1.jpg';
+import img3 from '../assets/heroImages/GYM INTERIOR_1.31.1.jpg';
+import img4 from '../assets/heroImages/GYM INTERIOR_1.32.1.jpg';
+import img5 from '../assets/heroImages/GYM INTERIOR_1.37.1.jpg';
+import img6 from '../assets/heroImages/GYM INTERIOR_1.39.1.jpg';
 import { Link } from 'react-router-dom';
 
 const Hero = () => {
-    const imagesArray = [
-        '../../src/assets/heroImages/GYM INTERIOR_1.11.1.jpg',
-        '../../src/assets/heroImages/GYM INTERIOR_1.15.1.jpg',
-        '../../src/assets/heroImages/GYM INTERIOR_1.31.1.jpg',
-        '../../src/assets/heroImages/GYM INTERIOR_1.32.1.jpg',
-        '../../src/assets/heroImages/GYM INTERIOR_1.37.1.jpg',
-        '../../src/assets/heroImages/GYM INTERIOR_1.39.1.jpg',
-    ];
+    const imagesArray = [img1, img2, img3, img4, img5, img6];
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     useEffect(() => {
@@ -34,8 +33,8 @@ const Hero = () => {
                 }}
             />
             <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
-            <Link href="/" className="absolute top-10 lg:left-20 left-10">
-                <img src={logo} alt="logo" width={95} height={95} className=" bg-transparent scale-150" />
+            <Link to="/" className="absolute top-10 lg:left-20 left-10">
+                <img src={logo} alt="logo" width={95} height={95} className="bg-transparent scale-150" />
                 <p className="font-bold lg:text-2xl hidden text-[#FF6701] ">Bharat's Fitness Den</p>
             </Link>
             <div className="lg:h-[100vh] md:h-[100vh] lg:pl-20 pl-8 items-center w-full bg-transparent content lg:pt-56 pt-56">
@@ -58,6 +57,6 @@ const Hero = () => {
             </div>
         </div>
     );
-}
+};
 
 export default Hero;
