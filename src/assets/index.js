@@ -10,6 +10,7 @@ import yoga from './icons8-yoga-100.png'
 import founder from './WhatsApp Image 2023-04-16 at 23.37.10.jpeg'
 import offerBackground from './10-Essential-Weight-Lifting-Tips.jpg'
 import trainer from './confident-sportsman-with-headphones-jumping-rope.jpg'
+import modernEquipment from './weight.png'
 
 export {
     logo,
@@ -23,5 +24,6 @@ export {
     yoga,
     founder,
     offerBackground,
-    trainer
+    trainer,
+    modernEquipment,
 }

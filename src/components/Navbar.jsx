@@ -33,8 +33,8 @@ export default function App() {
   const menuItems = [
     "Home",
     "Testimonial",
-    "Sign In",
-    "Log out",
+    // "Sign In",
+    // "Log out",
   ];
 
   return (
@@ -42,7 +42,7 @@ export default function App() {
       <NavbarContent className="">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden text-white"
+          className="xl:hidden text-white"
         />
         <NavbarBrand className="text-[#FF6701] lg:justify-start justify-end ml-10 flex" >
           <Link href="/" className="">
@@ -52,7 +52,7 @@ export default function App() {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-10 ml-10" justify="center">
+      <NavbarContent className="hidden xl:flex gap-10 ml-10" justify="center">
         <NavbarItem isActive>
           <div className="grid place-content-center p-4">
             <DrawOutlineButton>
@@ -69,17 +69,17 @@ export default function App() {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex text-[#FF6701]">
+        {/* <NavbarItem className="hidden xl:flex text-[#FF6701]">
           <div className="grid place-content-center p-4">
             <DrawOutlineButton><Link href="#" className="text-[#FF6701] hover:text-[#ffffff]">Login</Link></DrawOutlineButton>
           </div>
         </NavbarItem>
         <NavbarItem>
-          <div className="grid place-content-center p-4">
+          <div className="grid place-content-center p-4 xl:flex">
             <DrawOutlineButton><Link href="#" className="text-[#FF6701] hover:text-[#ffffff]">Sign Up</Link></DrawOutlineButton>
           </div>
-        </NavbarItem>
-        <NavbarMenu className="bg-transparent">
+        </NavbarItem> */}
+        <NavbarMenu className="bg-transparent top-24">
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`} className="bg-transparent">
               <Link

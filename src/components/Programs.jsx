@@ -53,44 +53,50 @@ const Programs = () => {
     // }, []);
 
     return (
-        <div className="overflow-hidden lg:mx-20 ml-8">
+        <div className="overflow-hidden xl:mx-10 mx-2">
             {
                 isOpen && <ContactModal isOpen={isOpen} setIsOpen={setIsOpen} />
             }
             <div className='flex items-center gap-20'>
-                <div className="flex flex-col text-4xl lg:text-8xl lg:mt-10 mt-32 font-bold relative bg-transparent w-full">
-                    <h1 className="bg-transparent text-center w-full">Our Services</h1>
+                <div className="flex flex-col text-xl xl:text-2xl xl:mt-10 mt-32 font-bold relative bg-transparent w-full">
+                    <h1 className="bg-transparent text-center w-full xl:text-2xl text-lg">WHAT WE DO</h1>
+                    <h1 className="bg-transparent text-center w-full text-2xl xl:text-6xl xl:px-20 pt-10">Regardless of your sport of choice, our gym cultivates champions</h1>
                     {/* <div className='triangle absolute top-2/3 opacity-30 right-1/3'></div> */}
                 </div>
             </div>
-            <div className="lg:grid hidden lg:grid-cols-11 grid-cols-1 gap-4 md:gap-8 lg:gap-20 mt-10 w-full">
-                <div className='col-span-1 items-center flex cursor-pointer' onClick={handleLeftClick}>
-                    <GrPrevious className='text-white h-20 w-20' />
-                </div>
-                {programs.slice(startIndex, startIndex + 3).map((item) => (
-                    <div key={item.id} className="p-4 w-80 border-2 h-[400px] flex flex-col justify-between my-10 items-center col-span-3 border-transparent rounded-2xl 
-                    hover:scale-105 duration-200 hover:drop-shadow-2xl hover:shadow-[#FF6701] hover:cursor-pointer text-white shadow-lg">
-                        <img src={item.img} alt={item.title} width={90} height={90} className='flex justify-center items-center' />
-                        <h1 className='text-xl font-bold'>{item.title}</h1>
-                        <p className="mt-4 justify-evenly">{item.description}</p>
-                        <div className="grid place-content-center p-4">
-                            <DrawOutlineButton>Get Started</DrawOutlineButton>
-                        </div>
+            {/* desktop */}
+            <div className=''>
+                <div className="xl:grid hidden xl:grid-cols-11 grid-cols-1 gap-4 md:gap-8 xl:gap-20 mt-10 w-full">
+                    <div className='col-span-1 items-center flex cursor-pointer' onClick={handleLeftClick}>
+                        <GrPrevious className='text-white h-20 w-20' />
                     </div>
-                ))}
-                <div className='col-span-1 items-center flex cursor-pointer' onClick={handleRightClick}>
-                    <GrNext className='text-white h-20 w-20' />
+                    {programs.slice(startIndex, startIndex + 3).map((item) => (
+                        <div key={item.id} className="relative p-4 w-80 border-2 h-[400px] flex flex-col justify-between my-10 items-center col-span-3 border-transparent rounded-2xl 
+        hover:scale-105 duration-200 hover:drop-shadow-2xl hover:shadow-[#FF6701] hover:cursor-pointer text-white shadow-xl">
+                            <img src={item.img} alt={item.title} width={90} height={90} className='flex justify-center items-center' />
+                            <h1 className='text-xl font-bold'>{item.title}</h1>
+                            <p className="mt-4 justify-evenly">{item.description}</p>
+                            <div className="grid place-content-center p-4">
+                                <DrawOutlineButton>Get Started</DrawOutlineButton>
+                            </div>
+                        </div>
+                    ))}
+                    <div className='col-span-1 items-center flex cursor-pointer' onClick={handleRightClick}>
+                        <GrNext className='text-white h-20 w-20' />
+                    </div>
                 </div>
             </div>
-            <div className="lg:hidden lg:grid-cols-3 gap-4 md:gap-8 mt-10 w-full lg:ml-20">
+
+            {/* small screen */}
+            <div className="xl:hidden lg:grid-cols-3 lg:grid gap-4 mt-10 w-full xl:ml-20 lg:px-10 lg:gap-4">
                 {programs.map((item) => (
-                    <div key={item.id} className="p-4 w-80 border-2 h-[400px] flex flex-col justify-between items-center col-span-1 border-transparent mt-4">
+                    <div key={item.id} className="p-4 w-80 lg:w-72 border-2 h-[400px] flex flex-col justify-between items-center col-span-1 border-transparent mt-4 lg:border-[#FF6701] lg:rounded-lg">
                         <img src={item.img} alt={item.title} width={90} height={90} className='flex justify-center items-center' />
                         <h1 className='text-xl font-bold'>{item.title}</h1>
                         <p className="mt-4 justify-evenly">{item.description}</p>
                         <button
                             className="w-full mt-4 h-12 text-black font-semibold 
-                            bg-gradient-to-r from-[#FF3C00] to-[#FF6701] rounded-lg shadow-lg hover:cursor-pointer"
+                            bg-gradient-to-r from-[#FF3C00] to-[#FF6701] rounded-xl shadow-xl hover:cursor-pointer"
                             onClick={() => handleOpen()}
                         >
                             Get Started
